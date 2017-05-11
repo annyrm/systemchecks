@@ -22,6 +22,8 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware'=>'auth'],function(){//
   Route::get('cheques', 'CheckController@getIndex');
+  Route::get('cheques/show', 'CheckController@getShowName');
+  Route::get('cheques/showDate', 'CheckController@getShowDate');
 });
 
 
