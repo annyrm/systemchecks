@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use App\Check;
 use Notification;
-use Carbon\Carbon;
 
 class CheckController extends Controller
 {
   public function getIndex(){
-        $fecha = Carbon::now();
-        $arrayCheques = Check::whereDate('expiration', '=', $fecha);
+        $arrayCheques = Check::all();
         return view('cheques.index')->with('arrayCheques',$arrayCheques);
     }
     public function getCreate(){
